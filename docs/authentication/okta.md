@@ -7,7 +7,6 @@ This document provides comprehensive information about the Okta integration in K
 Keep supports Okta as an authentication provider, enabling:
 - Single Sign-On (SSO) via Okta
 - JWT token validation with JWKS
-- User and group management through Okta
 - Role-based access control
 - Token refresh capabilities
 
@@ -155,12 +154,11 @@ The refresh token flow is handled automatically by the application:
        # Verify the token is validated correctly
    ```
 
-2. **IdentityManager Tests**: Test user and group management
+2. **IdentityManager Tests**: Test SSO support
    ```python
-   def test_okta_create_user():
-       # Mock Okta API responses
-       # Test creating a user
-       # Verify the correct API calls are made
+   def test_okta_support_sso():
+       # Initialize the OktaIdentityManager
+       # Verify support_sso returns True
    ```
 
 ### Integration Tests
