@@ -27,7 +27,7 @@ When Keep receives alerts from an unconnected provider (like Prometheus pushing 
 
 ## Attaching alerts to connected providers
 
-If you have a connected provider and want to associate incoming alerts with it instead of creating a linked provider, add the `provider_id` query parameter to the webhook URL.
+If you have a connected provider and want to associate incoming alerts with it instead of creating a linked provider, append /{provider_id} to the webhook URL path after the provider type.
 
 For example, with Prometheus AlertManager:
 
@@ -37,7 +37,7 @@ alertmanager:
     receivers:
       - name: "keep"
         webhook_configs:
-          - url: "https://api.keephq.dev/alerts/event/prometheus?provider_id=your_provider_id"
+          - url: "https://api.keephq.dev/alerts/event/prometheus/your_provider_id"
 ```
 
 Or with other webhook-based integrations:
